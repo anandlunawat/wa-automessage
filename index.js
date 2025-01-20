@@ -29,7 +29,7 @@ const buttonArray = [
 
 async function sendOptionsWithButtons(phoneNumber) {
     const message = 'Hello! Welcome to Akanksha and Aman\'s wedding!! I am your wedding assistant.\n\n' +
-        'Please choose from options below:\n' +
+        'Please choose from options below: and enter number \n' +
         '1. Baraat Swagat\n' +
         '2. Lunch Area\n' +
         '3. Carnival\n' +
@@ -72,31 +72,33 @@ client.on('message', async message => {
     if (message.body.toLowerCase().includes('hii') || message.body.toLowerCase().includes('hi')) {
         await sleep(5000);
         await sendOptionsWithButtons(message.from);
-    } else if (message.body.toLowerCase().includes('carnival')) {
+    } else if (message.body.toLowerCase().includes('carnival') || message.body.toLowerCase().includes('3')) {
         await sleep(5000);
         await sendMessage(message.from, 'Carnival is scheduled at 3:00pm sharp on 21st January near Lotus lobby area! Theme for the event is Pastel colors. Keep your energy high. See you soon!!:)');
-    } else if (message.body.toLowerCase().includes('sangit') || message.body.toLowerCase().includes('sangeet')) {
+    } else if (message.body.toLowerCase().includes('sangit') || message.body.toLowerCase().includes('sangeet') || message.body.toLowerCase().includes('4')) {
         await sleep(5000);
         await sendMessage(message.from, 'Sangeet is scheduled at 7:00pm sharp on 21st January at Aster lawn. Theme for the event is Indo-western style. Come and groove to evergreen hits as we celebrate Akanksha and Aman\'s forever! See you there!:)');
-    } else if (message.body.toLowerCase().includes('baraat swagat')) {
+    } else if (message.body.toLowerCase().includes('baraat swagat') || message.body.toLowerCase().includes('1')) {
         await sleep(5000);
         await sendMessage(message.from, 'Baraat swagat is scheduled at 11:00am on 21st January at Daisy Hall. Theme for the event is white and red. Don\'t miss the grand entry of bride and groom! See you there!! :)');
-    } else if (message.body.toLowerCase().includes('lunch area')) {
+    } else if (message.body.toLowerCase().includes('lunch area') || message.body.toLowerCase().includes('2')) {
         await sleep(5000);
         await sendMessage(message.from, 'Lunch for both the days is arranged at Banquet area next to Daisy Hall. Padhaaro sa!');
-    } else if (message.body.toLowerCase().includes('phera')) {
+    } else if (message.body.toLowerCase().includes('phera') || message.body.toLowerCase().includes('5')) {
         await sleep(5000);
         await sendMessage(message.from, 'Phera is scheduled at 11:00am on 22nd January at Lotus. Theme for the event is Ghagra and Kurta. Bring on your traditional game and let\'s cheer for the new couple in town! See you there!! :)');
-    } else if (message.body.toLowerCase().includes('mahera')) {
+    } else if (message.body.toLowerCase().includes('mahera') || message.body.toLowerCase().includes('6')) {
         await sleep(5000);
         await sendMessage(message.from, 'Mahera is scheduled at 3:00pm on 22nd January at Tulip Hall. Theme for the event is Pink Lehriya. Do not miss this, as the celebration continues in style. See you there!! :)');
-    } else if (message.body.toLowerCase().includes('hi-tea')) {
+    } else if (message.body.toLowerCase().includes('hi-tea') || message.body.toLowerCase().includes('7')) {
         await sleep(5000);
         await sendMessage(message.from, 'Hi-tea is arranged at Lotus lobby area. See you there!!:)');
-    } else if (message.body.toLowerCase().includes('varmala')) {
+    } else if (message.body.toLowerCase().includes('varmala') || message.body.toLowerCase().includes('8')) {
         await sleep(5000);
         await sendMessage(message.from, 'Varmala is scheduled at 7:00pm on 22nd January at Aster Lawn. Let\'s come together for one final time to celebrate our newly wed couple. See you there!! :)');
-    } else {
+    } else  {
+        await sleep(5000);
+        await sendMessage(message.from, 'Please select right option.');
         console.log('Received a message that does not match predefined keywords');
     }
 });
